@@ -139,5 +139,16 @@
       },
       extensions = ["wit"],
     },
+
+    cfengine = {
+      grammar = {
+        source.git = {
+          git = "https://github.com/olehermanse/tree-sitter-cfengine",
+          rev = "4fef93770487bbed17039ae18c73fbc1de8bcfc7",
+        },
+      },
+      extensions = ["cf"],
+    },
+
   },
 }

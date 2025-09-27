@@ -405,6 +405,9 @@ where
         #[cfg(feature = "wit")]
         "wit" => Ok(topiary_queries::wit().into()),
 
+        #[cfg(feature = "cfengine")]
+        "cfengine" => Ok(topiary_queries::cfengine().into()),
+
         name => Err(TopiaryError::Bin(
             format!("The specified language is unsupported: {name}"),
             Some(CLIError::UnsupportedLanguage(name.to_string())),
