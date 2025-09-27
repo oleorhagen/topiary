@@ -18,6 +18,17 @@
 ; ] @append_hardline
 
 ; We always want the promisers to be on a new line
+; (bundle_block_body
+;   (bundle_section) @prepend_hardline @append_hardline
+; )
+
 (bundle_block_body
-  (bundle_section) @prepend_hardline @append_hardline
+  (bundle_section
+    (promise_guard) @prepend_hardline @append_hardline @append_indent_start
+  ) @append_indent_end
 )
+
+; We always want to indent the promisers within bundle sections
+; (bundle_section
+;   (promise) @append_indent_start
+; )
