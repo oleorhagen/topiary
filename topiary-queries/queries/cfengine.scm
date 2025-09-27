@@ -39,14 +39,20 @@
 ; Promise guard formatting - should be at bundle level with newline after
 (promise_guard) @prepend_hardline @append_hardline
 
-; Promise formatting - promiser should be indented under guard (4 spaces)
+; Bundle section - add indentation for promises within section
+(bundle_section
+  (promise_guard) @append_indent_start
+)
+
+
+; Promise formatting - promiser should be indented under section
 (promise
-  (promiser) @append_hardline @append_indent_start @append_indent_start @append_space
+  (promiser) @append_hardline @append_indent_start @append_space
   ";" @prepend_hardline @prepend_indent_end @prepend_indent_end
 )
 
-; Attribute formatting - each attribute on separate line, indented 6 spaces (promiser + 2)
-(attribute) @prepend_hardline @append_indent_start @append_indent_start @append_indent_start @prepend_indent_end @prepend_indent_end @prepend_indent_end
+; Attribute formatting - each attribute on separate line with basic indentation
+(attribute) @prepend_hardline
 
 ; Arrow operator formatting
 "=>" @prepend_space @append_space
@@ -76,5 +82,5 @@
 ; Function call formatting - add spaces after commas
 (call "," @append_space)
 
-; Add blank line after promise semicolon in some cases
-(promise ";" @append_hardline)
+; Add blank line after promise semicolon to separate sections
+(promise ";" @append_hardline @append_hardline)
