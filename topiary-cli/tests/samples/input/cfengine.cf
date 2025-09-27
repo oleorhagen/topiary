@@ -1,0 +1,22 @@
+bundle agent example {
+vars:
+"packages" slist => { "nginx",
+"mysql-server",
+"php-fpm"};
+
+files:
+"/etc/nginx/nginx.conf"
+create => "true",
+perms => m("644"),
+copy_from => local_cp("/tmp/nginx.conf");
+
+processes:
+any::
+"nginx"
+restart_class => "restart_nginx",
+process_count => check_range("nginx", "1", "5");
+
+commands:
+restart_nginx::
+"/usr/bin/systemctl restart nginx";
+}
