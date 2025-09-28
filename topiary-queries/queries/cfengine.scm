@@ -94,6 +94,7 @@
   (attribute)
   (attribute_name)
   "=>"
+  "->"
 ] @append_space
 
 ; Except for elements separators
