@@ -126,3 +126,6 @@
 )
 
 ;; TODO - Separate rules into vertical vs horisontal
+
+;; Rule #15 - Promises should always be on a separate line (Overlapping with previous definitions - 2do - fix)
+(promise) @prepend_hardline @append_hardline
