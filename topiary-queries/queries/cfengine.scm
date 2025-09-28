@@ -110,8 +110,9 @@
 ;; Rule #15 - Promises should always be on a separate line (Overlapping with previous definitions - 2do - fix)
 (promise) @prepend_hardline @append_hardline
 
-;; Rule #16 - A body_block should always be ending on a newline
+;; Rule #16 - A body_block/bundle should always be ending on a newline
 (body_block) @append_hardline
+(bundle_block) @append_hardline
 
 ;; Rule #17 - A body block should always have a newline as the first entry after the first {
 (body_block
