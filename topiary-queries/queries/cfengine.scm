@@ -27,7 +27,7 @@
 (bundle_block_body
   (bundle_section
     (class_guarded_promises
-      (class_guard) @append_hardline
+      (class_guard) @append_hardline @prepend_hardline
     )
   )
 )
