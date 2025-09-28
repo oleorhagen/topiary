@@ -22,9 +22,24 @@
 ;   (bundle_section) @prepend_hardline @append_hardline
 ; )
 
+;; Rule #1 - Promises should start a newline
 (bundle_block_body
   (bundle_section
-    (promise_guard) @prepend_hardline @append_hardline @append_indent_start
+    (promise_guard) @prepend_hardline @append_hardline
+  )
+)
+
+;; Rule #2 - Promises should be indented
+(bundle_block_body
+  (bundle_section
+    (promise_guard) @prepend_indent_start
+  ) @append_indent_end
+)
+
+;; Rule #3 - Promisers should be indented
+(bundle_block_body
+  (bundle_section
+    (promise_guard) @append_indent_start
   ) @append_indent_end
 )
 
