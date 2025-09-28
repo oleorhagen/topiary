@@ -62,4 +62,21 @@
 ;; Rule #6 - Promise guards should newline
 
 ;; Rule #7 - A ; should always lead to a newline
-";" @append_hardline
+; ";" @append_hardline
+
+;; Rule #8 - A bundle block should have:
+;;; Opening braces on the same line
+(
+ (bundle_block_keyword)
+ (bundle_block_type)
+ (bundle_block_name)
+ "{"
+) @append_hardline
+;; And closing brace on a separate line
+; Match the last }
+(bundle_block_body
+   "}" @prepend_hardline @append_hardline
+   .
+)
+
+;; TODO - Separate rules into vertical vs horisontal
