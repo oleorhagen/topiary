@@ -16,12 +16,8 @@
 ;  "{"
 ; ] @append_hardline
 
-;; Rule #1 - Promises should start a newline
-(bundle_block_body
-  (bundle_section
-    (promise_guard) @prepend_hardline @append_hardline
-  )
-)
+;; Rule #1 - Promise guards should start a newline
+(promise_guard) @prepend_hardline @append_hardline
 
 ;; Rule #2 - Class guards should start a newline
 (bundle_block_body
