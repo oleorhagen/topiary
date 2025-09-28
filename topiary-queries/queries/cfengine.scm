@@ -11,11 +11,6 @@
   (bundle_block_name)
 ] @append_space
 
-; Insert a newline after all {
-; [
-;  "{"
-; ] @append_hardline
-
 ;; Rule #1 - Promise guards should start a newline
 (promise_guard) @prepend_hardline @append_hardline
 
@@ -58,21 +53,6 @@
 
 ;; Rule #7 - A ; should always lead to a newline
 ; ";" @append_hardline
-
-;; Rule #8 - A bundle block should have:
-;;; Opening braces on the same line
-(
-  (bundle_block_keyword)
-  (bundle_block_type)
-  (bundle_block_name)
-  "{"
-) @append_hardline
-;; And closing brace on a separate line
-; Match the last }
-(bundle_block_body
-  "}" @prepend_hardline @append_hardline
-  .
-)
 
 ;; Rule #9 - Promisers should have a space appended
 (promiser) @append_space
