@@ -112,8 +112,20 @@
   (attribute) @prepend_indent_start
 ) @append_indent_end
 
-;; Only if it is not followed directly by a ;
+;; Rule #13 (horisontal) - slists should have spaces between the elements
+(list
+  "{"
+  .
+  _
+  "," @append_space
+)
 
-; (attribute) @append_space
+;; Rule #14 (horisontal) - function calls should have spaces between elements
+(call
+  "("
+  .
+  _
+  "," @append_space
+)
 
 ;; TODO - Separate rules into vertical vs horisontal
