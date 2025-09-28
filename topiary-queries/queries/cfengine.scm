@@ -4,12 +4,11 @@
   (quoted_string)
 ] @leaf
 
-
 ; Add spaces around bundle keywords
 [
- (bundle_block_keyword)
- (bundle_block_type)
- (bundle_block_name)
+  (bundle_block_keyword)
+  (bundle_block_type)
+  (bundle_block_name)
 ] @append_space
 
 ; Insert a newline after all {
@@ -67,16 +66,30 @@
 ;; Rule #8 - A bundle block should have:
 ;;; Opening braces on the same line
 (
- (bundle_block_keyword)
- (bundle_block_type)
- (bundle_block_name)
- "{"
+  (bundle_block_keyword)
+  (bundle_block_type)
+  (bundle_block_name)
+  "{"
 ) @append_hardline
 ;; And closing brace on a separate line
 ; Match the last }
 (bundle_block_body
-   "}" @prepend_hardline @append_hardline
-   .
+  "}" @prepend_hardline @append_hardline
+  .
 )
+
+;; Rule #9 - Promisers should have a space appended
+(promiser) @append_space
+; Except if they are directly followed by a ;
+(
+  (promiser)
+  .
+  ";"
+  .
+) @append_antispace
+
+;; Only if it is not followed directly by a ;
+
+; (attribute) @append_space
 
 ;; TODO - Separate rules into vertical vs horisontal
