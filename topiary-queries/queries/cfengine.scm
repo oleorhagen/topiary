@@ -137,3 +137,12 @@
 
   (#delimiter! "\n")
 )
+
+;; Rule #20 - Body/Bundle block body should always have a space before the opening {
+(bundle_block_body
+  "{" @prepend_space
+)
+
+(body_block_body
+  "{" @prepend_space
+)
