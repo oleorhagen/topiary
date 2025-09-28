@@ -17,15 +17,19 @@
 ;  "{"
 ; ] @append_hardline
 
-; We always want the promisers to be on a new line
-; (bundle_block_body
-;   (bundle_section) @prepend_hardline @append_hardline
-; )
-
 ;; Rule #1 - Promises should start a newline
 (bundle_block_body
   (bundle_section
     (promise_guard) @prepend_hardline @append_hardline
+  )
+)
+
+;; Rule #2 - Class guards should start a newline
+(bundle_block_body
+  (bundle_section
+    (class_guarded_promises
+      (class_guard) @append_hardline
+    )
   )
 )
 
@@ -42,8 +46,20 @@
     (promise_guard) @append_indent_start
   ) @append_indent_end
 )
+; Also after class guards
+(bundle_block_body
+  (bundle_section
+    (class_guarded_promises
+      (class_guard) @append_indent_start
+    ) @append_indent_end
+  )
+)
 
-; We always want to indent the promisers within bundle sections
-; (bundle_section
-;   (promise) @append_indent_start
-; )
+;; Rule #4 - Promises should have a newline separating them
+
+;; Rule #5 - Promise guards should indent
+
+;; Rule #6 - Promise guards should newline
+
+;; Rule #7 - A ; should always lead to a newline
+";" @append_hardline
