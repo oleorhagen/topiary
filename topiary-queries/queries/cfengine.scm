@@ -88,6 +88,30 @@
   .
 ) @append_antispace
 
+;; Rule #10 - All promise elements should be followed by a space
+[
+  ; (promiser)
+  (attribute)
+  (attribute_name)
+  "=>"
+] @append_space
+
+; Except for elements separators
+[
+  ","
+  ";"
+] @prepend_antispace
+
+;; Rule #11 (vertical) - attributes should all be on newlines
+(
+  (attribute) @prepend_hardline
+)
+
+;; Rule #12 (horisontal) - The promiser attributes should start and end a new indented scope
+(
+  (attribute) @prepend_indent_start
+) @append_indent_end
+
 ;; Only if it is not followed directly by a ;
 
 ; (attribute) @append_space
