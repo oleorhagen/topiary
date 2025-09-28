@@ -148,3 +148,12 @@
     .
   )
 )
+
+;; Rule #19 - Insert empty lines between body blocks
+(
+  [ (bundle_block) (body_block) ] @append_delimiter
+  .
+  [ (bundle_block) (body_block) ]
+
+  (#delimiter! "\n")
+)
