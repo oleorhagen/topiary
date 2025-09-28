@@ -140,3 +140,11 @@
     "{" @append_hardline
   )
 )
+
+;; Rule #18 - A body block should always have, as it's last element, the closing brace on a separate line
+(body_block
+  (_
+    "}" @prepend_hardline
+    .
+  )
+)
