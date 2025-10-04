@@ -147,3 +147,18 @@
 (body_block_body
   "{" @prepend_space
 )
+
+;; Rule #21 - Insert empty lines between promises
+(
+  (bundle_section) @append_delimiter
+  (#delimiter! "\n")
+)
+
+;; Prepend a space before the first promise
+(bundle_block_body
+  "{"
+  .
+  (bundle_section) @prepend_delimiter
+
+  (#delimiter! "\n")
+)
