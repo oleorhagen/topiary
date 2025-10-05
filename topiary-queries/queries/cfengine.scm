@@ -152,6 +152,7 @@
 (
   (bundle_section) @append_delimiter
   (#delimiter! "\n")
+  (#query_name! "Promise newline delimeter")
 )
 
 ;; Prepend a space before the first promise
@@ -161,4 +162,11 @@
   (bundle_section) @prepend_delimiter
 
   (#delimiter! "\n")
+
+  (#query_name! "First promise newline delimeter")
 )
+
+;; Rule #22 - Align => When multiple are present in a promise (?)
+
+;; Rule #23 - Indent all parts of a comment
+(comment) @multi_line_indent_all
