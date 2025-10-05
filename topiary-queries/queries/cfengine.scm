@@ -170,3 +170,8 @@
 
 ;; Rule #23 - Indent all parts of a comment
 (comment) @multi_line_indent_all
+
+;; Rule #24 - Allow comments and type definitions to have a blank line above them
+[
+  (comment)
+] @allow_blank_line_before
