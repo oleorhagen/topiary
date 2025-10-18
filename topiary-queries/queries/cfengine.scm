@@ -14,6 +14,13 @@
   (bundle_block_name)
 ] @append_space
 
+; Add spaces around body keywords
+[
+  (body_block_keyword)
+  (body_block_type)
+  (body_block_name)
+] @append_space
+
 ;; Rule #1 - Promise guards should start a newline
 (promise_guard) @prepend_hardline @append_hardline
 
