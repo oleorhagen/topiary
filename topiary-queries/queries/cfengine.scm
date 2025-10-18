@@ -4,6 +4,9 @@
   (quoted_string)
 ] @leaf
 
+;; Ensure comments maintain their line breaks
+(comment) @prepend_hardline @append_hardline
+
 ; Add spaces around bundle keywords
 [
   (bundle_block_keyword)
@@ -23,19 +26,13 @@
   )
 )
 
-;; Rule #2 - Promises should be indented
-(bundle_block_body
-  (bundle_section
-    (promise_guard) @prepend_indent_start
-  ) @append_indent_end
-)
-
-;; Rule #3 - Promisers should be indented
+;; Rule #2 & #3 - Promises and promisers should be indented
 (bundle_block_body
   (bundle_section
     (promise_guard) @append_indent_start
   ) @append_indent_end
 )
+
 ; Also after class guards
 (bundle_block_body
   (bundle_section
@@ -146,6 +143,15 @@
 
 (body_block_body
   "{" @prepend_space
+)
+
+;; Rule #20b - Bundle block body content should be indented
+(bundle_block_body
+  "{" @append_indent_start
+)
+
+(bundle_block_body
+  "}" @prepend_indent_end
 )
 
 ;; Rule #21 - Insert empty lines between promises
